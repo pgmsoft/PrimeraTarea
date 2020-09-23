@@ -1,7 +1,7 @@
 <%= form_with(model: post, local: true) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h2><%= pluralize(post.errors.count, "error") %> . Es imposible registrar la publicacion:</h2>
 
       <ul>
         <% post.errors.full_messages.each do |message| %>
@@ -12,12 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label "Usuario" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Titulo" %>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :body %>
+    <%= form.label "Descripcion" %>
     <%= form.text_area :body %>
   </div>
 
